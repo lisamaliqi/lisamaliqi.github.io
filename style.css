@@ -82,3 +82,18 @@ body {
 
 
 
+
+/*
+//////////////////// -- 1.Clock -- ////////////////////
+*/
+
+.clock {
+    font-family: "Playfair Display", serif;
+    font-size: 40px;
+}
+
+@media all and (min-width: 601px) {
+    .clock {
+        font-size: 30px;
+    }
+}
