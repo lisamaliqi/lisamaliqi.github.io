@@ -105,6 +105,24 @@ body {
 */
 
 
+.intro-about-me {
+    font-family: "IBM Plex Mono", serif;
+
+}
+
+.intro-about-me h2 {
+    font-size: 5vh;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.intro-about-me .profile-img {
+    margin-top: 20px;
+    width: 60vw;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+}
 
 
 /*
