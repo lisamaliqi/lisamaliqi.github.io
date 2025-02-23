@@ -225,7 +225,6 @@ body {
     color: #B6B6DC;
 }
 
-
 @media all and (min-width: 601px) {
     .contact-info {
         padding: 8%;
@@ -244,6 +243,25 @@ body {
     }
 }
 
+@media all and (min-width: 1000px) {
+    .contact-info h2 {
+        font-size: 1em;
+    }
+
+    .contact-details {
+        font-size: 0.7em;
+    }
+}
+
+@media all and (min-width: 1200px) {
+    .contact-info h2 {
+        font-size: 1.5em;
+    }
+
+    .contact-details {
+        font-size: 1em;
+    }
+}
 
 
 
