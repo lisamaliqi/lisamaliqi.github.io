@@ -29,7 +29,7 @@ body {
     background: #202049;
     color: #B6B6DC;
     border-radius: 20px;
-    padding: 13%;
+    padding: 10%;
     margin-bottom: 4%;
 }
 
@@ -197,7 +197,6 @@ body {
 */
 
 .contact-info {
-    padding: 5%;
     font-family: "IBM Plex Mono", serif;
 }
 
@@ -227,6 +226,23 @@ body {
 }
 
 
+@media all and (min-width: 601px) {
+    .contact-info {
+        padding: 8%;
+    }
+
+    .contact-section {
+        padding-bottom: 30px;
+    }
+
+    .contact-info h2 {
+        font-size: 1.2em;
+    }
+
+    .contact-details {
+        font-size: 0.8em;
+    }
+}
 
 
 
