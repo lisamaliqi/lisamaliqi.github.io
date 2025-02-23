@@ -1,5 +1,5 @@
 /* media query
-BIGGEST= MIN 1050
+BIGGEST= MIN 1000
 MIDDLE= 600 - 1049
 SMALLEST = MAX 425
 */
@@ -107,19 +107,26 @@ body {
 
 .intro-about-me {
     font-family: "IBM Plex Mono", serif;
+    padding: 5%;
 }
 
 .intro-about-me h2 {
-    font-size: 5vh;
+    font-size: 4vh;
     text-align: center;
     margin-bottom: 20px;
 }
 
+.intro-about-me figure {
+    display: flex;
+    justify-content: center;
+}
+
 .intro-about-me .profile-img {
+    /* display: flex; */
     margin-top: 20px;
     width: 60vw;
     border-radius: 20px;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
 }
 
@@ -132,13 +139,32 @@ body {
     }
 
     .intro-about-me h2 {
-        font-size: 3vh;
+        font-size: 4vh;
         text-align: left;
     }
 
     .intro-about-me .profile-img {
         width: 20vw;
-        margin: 0% 0% 0% 0%;
+        margin: 0%;
+    }
+}
+
+@media all and (min-width: 1000px) {
+    .intro-about-me .text {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .intro-about-me h2 {
+        font-size: 6vh;
+    }
+
+    .intro-about-me p {
+        font-size: 2.5vh;
+    }
+
+    .intro-about-me .profile-img {
+        width: 15vw;
     }
 }
 
