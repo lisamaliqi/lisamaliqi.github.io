@@ -193,6 +193,45 @@ body {
 
 
 /*
+//////////////////// -- 6.Contact info -- ////////////////////
+*/
+
+.contact-info {
+    padding: 5%;
+    font-family: "IBM Plex Mono", serif;
+}
+
+.contact-info h2 {
+    font-size: 1.7em;
+}
+
+.contact-details {
+    margin-top: 2em;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    font-size: 1.3em;
+}
+
+.contact-section {
+    padding-bottom: 20px;
+}
+
+.dark-text {
+    color: #51516F;
+}
+
+.socials a {
+    text-decoration: none;
+    color: #B6B6DC;
+}
+
+
+
+
+
+
+/*
 //////////////////// -- 8.Copyright -- ////////////////////
 */
 
