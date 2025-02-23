@@ -107,7 +107,6 @@ body {
 
 .intro-about-me {
     font-family: "IBM Plex Mono", serif;
-
 }
 
 .intro-about-me h2 {
@@ -122,6 +121,25 @@ body {
     border-radius: 20px;
     align-items: center;
     justify-content: center;
+}
+
+@media all and (min-width: 601px) {
+    .intro-about-me {
+        padding: 5%;
+        display: flex;
+        flex-direction: row-reverse;
+        gap: 5%;
+    }
+
+    .intro-about-me h2 {
+        font-size: 3vh;
+        text-align: left;
+    }
+
+    .intro-about-me .profile-img {
+        width: 20vw;
+        margin: 0% 0% 0% 0%;
+    }
 }
 
 
