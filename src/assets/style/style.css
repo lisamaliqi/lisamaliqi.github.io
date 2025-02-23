@@ -193,6 +193,21 @@ body {
 
 
 /*
+//////////////////// -- 4.My Projects -- ////////////////////
+*/
+
+.my-projects {
+    font-family: "IBM Plex Mono", serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 120px 0px;
+    font-size: 2em;
+}
+
+
+
+/*
 //////////////////// -- 6.Contact info -- ////////////////////
 */
 
