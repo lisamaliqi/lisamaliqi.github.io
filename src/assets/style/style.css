@@ -203,9 +203,15 @@ body {
     align-items: center;
     padding: 120px 0px;
     font-size: 2em;
+    text-decoration: none;
 }
 
-
+@media all and (min-width: 601px) {
+    .my-projects {
+        padding: 0px 0px;
+        font-size: 1.5em;
+    }
+}
 
 /*
 //////////////////// -- 6.Contact info -- ////////////////////
