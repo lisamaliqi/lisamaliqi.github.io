@@ -213,6 +213,29 @@ body {
     }
 }
 
+
+
+/*
+//////////////////// -- 5.Playground -- ////////////////////
+*/
+
+.playground {
+    font-family: "IBM Plex Mono", serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 90px 0px;
+    font-size: 2em;
+    text-decoration: none;
+}
+
+.fa-gamepad {
+    margin-top: 10px;
+    font-size: 2em;
+}
+
+
 /*
 //////////////////// -- 6.Contact info -- ////////////////////
 */
