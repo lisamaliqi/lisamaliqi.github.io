@@ -190,6 +190,12 @@ body {
     }
 }
 
+@media all and (min-width: 1001px) {
+    .about-me {
+        font-size: 0.8em;
+    }
+}
+
 
 
 /*
