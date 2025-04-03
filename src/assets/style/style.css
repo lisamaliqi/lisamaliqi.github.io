@@ -327,6 +327,71 @@ body {
 
 
 
+
+/*
+//////////////////// -- 7.Links and resume -- ////////////////////
+*/
+
+.links-and-resume {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.link-icon {
+    font-size: 4em;
+}
+
+.download-resume {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #111131;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 1em;
+    text-decoration: none;
+    color: inherit;
+}
+
+.download-resume p {
+    font-size: 1.5em;
+    text-align: center;
+    margin: 0px 20px;
+}
+
+@media all and (min-width: 601px) {
+    .link-icon {
+        font-size: 3em;
+    }
+
+    .download-resume p {
+        font-size: 0.8em;
+        margin: 0px 10px;
+    }
+}
+
+@media all and (min-width: 1000px) {
+    .links-and-resume {
+        flex-wrap: nowrap; 
+        align-items: center; 
+        gap: 30px; 
+    }
+
+    .download-resume {
+        margin-top: -4px;
+        width: 100%;
+    }
+
+    
+    .download-resume p {
+        font-size: 1.5em;
+        /* margin: 0px 10px; */
+        text-align: left;
+    } 
+}
+
+
 /*
 //////////////////// -- 8.Copyright -- ////////////////////
 */
