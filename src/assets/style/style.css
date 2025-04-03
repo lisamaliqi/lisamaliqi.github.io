@@ -59,9 +59,9 @@ body {
 
 @media all and (min-width: 1000px) {
     .container {
-        margin: 20px 10%;
+        margin: 20px 9%;
         grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(6, 1fr);
+        grid-template-rows: repeat(6, 14vh);
     }
 
     .block {
@@ -123,12 +123,11 @@ body {
 }
 
 .intro-about-me .profile-img {
-    /* display: flex; */
-    margin-top: 20px;
-    width: 60vw;
+    width: 100%; 
+    max-width: 300px; 
+    height: auto; 
     border-radius: 20px;
-    /* align-items: center; */
-    justify-content: center;
+    object-fit: cover;
 }
 
 @media all and (min-width: 601px) {
@@ -157,11 +156,11 @@ body {
     }
 
     .intro-about-me h2 {
-        font-size: 2rem;
+        font-size: 2.5rem;
     }
 
     .intro-about-me p {
-        font-size: 1em;
+        font-size: 1.3em;
     }
 
     .intro-about-me .profile-img {
@@ -187,6 +186,12 @@ body {
 @media all and (min-width: 601px) {
     .about-me {
         font-size: 0.7em;
+    }
+}
+
+@media all and (min-width: 1001px) {
+    .about-me {
+        font-size: 0.85em;
     }
 }
 
