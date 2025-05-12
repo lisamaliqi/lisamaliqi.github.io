@@ -1,0 +1,79 @@
+body {
+    font-family: "IBM Plex Mono", monospace;
+    color: #B6B6DC;
+    background-color: #111131;
+    padding: 2rem;
+}
+
+.back-arrow {
+    font-size: 2em;
+    text-decoration: none;
+    color: #b6b6dc;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.back-arrow:hover {
+    color: #ffffff; 
+}
+
+h1 {
+    font-family: "Playfair Display", serif;
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 2rem;
+    justify-items: center;
+}
+
+.project-card {
+    background: #202049;
+    border: 2px solid #2D2D39;
+    border-radius: 20px;
+    padding: 1.5rem;
+    transition: box-shadow 0.3s ease;
+    max-width: 350px;
+}
+
+.project-card:hover {
+    box-shadow: 0 0 10px #51516F;
+}
+
+.project-card img {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: 200px;
+}
+
+h3.project-title {
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+p.project-description {
+    margin-top: 0.5rem;
+    font-size: 1rem;
+}
+
+.project-links {
+    margin-top: 1rem;
+}
+
+.project-links a {
+    margin-right: 15px;
+    text-decoration: none;
+    color: #b6b6dc;
+}
+
+.project-links a:hover {
+    color: #ffffff;
+}
