@@ -435,12 +435,17 @@ button { font: inherit; color: inherit; background: none; border: 0; cursor: poi
 
 /* ---------- Scroll reveal ---------- */
 .reveal {
+    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+/* Hidden only once the head script has flagged that the reveal will run,
+   so tiles stay visible if script.js never loads. */
+.js-reveal .reveal {
     opacity: 0;
     transform: translateY(14px);
-    transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
 }
 .reveal.is-visible { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) {
-    .reveal { opacity: 1; transform: none; }
+    .js-reveal .reveal { opacity: 1; transform: none; }
 }

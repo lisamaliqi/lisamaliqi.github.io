@@ -78,6 +78,9 @@
     const revealables = document.querySelectorAll(".reveal");
 
     if (revealables.length) {
+        // Tells the head script's failsafe that the reveal is in hand.
+        document.documentElement.dataset.revealReady = "1";
+
         if (reducedMotion || !("IntersectionObserver" in window)) {
             revealables.forEach((el) => el.classList.add("is-visible"));
         } else {

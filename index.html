@@ -31,6 +31,16 @@
             var t = localStorage.getItem("theme");
             if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
         } catch (e) {}
+
+        // Tiles are only hidden while the reveal script is expected to run.
+        // If it never marks itself ready, drop the flag so the content shows
+        // anyway -- a script that fails to load must not blank the page.
+        document.documentElement.classList.add("js-reveal");
+        setTimeout(function () {
+            if (!document.documentElement.dataset.revealReady) {
+                document.documentElement.classList.remove("js-reveal");
+            }
+        }, 1200);
     </script>
 </head>
 <body>
