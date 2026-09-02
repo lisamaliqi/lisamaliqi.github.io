@@ -3,98 +3,229 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My projects</title>
-    <link rel="icon" href="https://fav.farm/👾" />
 
-    <!-- Playfair display font -->
+    <title>Selected work — Lisa Maliqi</title>
+    <meta name="description" content="Projects by Lisa Maliqi: a movie database, a Star Wars encyclopedia, a TypeScript candy webshop, a quiz and a multiplayer reaction game.">
+    <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#08081A" media="(prefers-color-scheme: dark)">
+
+    <link rel="icon" href="https://fav.farm/👾">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 
-    <!-- IBM Plex Mono font -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/style/base.css">
+    <link rel="stylesheet" href="../assets/style/projects.css">
 
-    <!-- FontAwesome Icons -->
-    <script src="https://kit.fontawesome.com/dd0728a671.js" crossorigin="anonymous"></script>
+    <script>
+        try {
+            var t = localStorage.getItem("theme");
+            if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+        } catch (e) {}
+    </script>
+</head>
+<body>
 
-    <link rel="stylesheet" href="../assets/style/projectCollection.css">
-    </head>
-    <body>
-    
-        <!-- Back arrow to homepage -->
-        <a href="../../index.html" class="back-arrow">
-            <i class="fa-solid fa-arrow-left"></i> 
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ---------- Icon sprite ---------- -->
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24"><circle cx="12" cy="12" r="8.5"/><path d="M10.3 9.2l4.4 2.8-4.4 2.8V9.2Z"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.4A8.5 8.5 0 0 1 9.6 4a8.5 8.5 0 1 0 10.4 10.4Z"/></symbol>
+    <symbol id="i-github" viewBox="0 0 24 24" class="icon--filled"><path d="M12 1.8a10.2 10.2 0 0 0-3.23 19.9c.51.1.7-.22.7-.49v-1.9c-2.84.62-3.44-1.2-3.44-1.2-.46-1.19-1.13-1.5-1.13-1.5-.93-.64.07-.62.07-.62 1.02.07 1.56 1.05 1.56 1.05.91 1.56 2.38 1.11 2.96.85.09-.66.36-1.11.65-1.37-2.27-.26-4.65-1.14-4.65-5.05 0-1.12.4-2.03 1.05-2.75-.11-.26-.46-1.3.1-2.71 0 0 .85-.27 2.79 1.05a9.7 9.7 0 0 1 5.08 0c1.94-1.32 2.79-1.05 2.79-1.05.56 1.41.21 2.45.1 2.71.65.72 1.05 1.63 1.05 2.75 0 3.92-2.39 4.78-4.67 5.04.37.32.7.94.7 1.9v2.81c0 .27.18.6.71.49A10.2 10.2 0 0 0 12 1.8Z"/></symbol>
+</svg>
+
+
+<div class="page">
+
+    <nav class="page-nav">
+        <a class="back-link" href="../../index.html">
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+            Back home
         </a>
-        
-        <!-- Page heading -->
-        <h1>My Projects</h1>
-    
-      <!-- Projects grid -->
-        <div class="projects-grid">
 
-                <!-- EXAMPLE PROJECT CARD -->
-            <!-- <article class="project-card">
-                <img src="../assets/img/projects/project1.jpg" alt="Portfolio Website">
-                <h3 class="project-title">Portfolio Website</h3>
-                <p class="project-description">A responsive portfolio site built using HTML, CSS, and JavaScript.</p>
-                <div class="project-links">
-                    <a href="https://github.com/yourusername/portfolio" target="_blank">GitHub</a>
-                    <a href="https://yourdomain.com/portfolio" target="_blank">Live Demo</a>
-                </div>
-            </article> -->
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle
+                aria-label="Switch colour theme">
+            <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+            <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+        </button>
+    </nav>
 
-            <article class="project-card">
-                <img src="../assets/img/projects/TMDB.png" alt="The Movie DB">
-                <h3 class="project-title">The Movie DB</h3>
-                <p class="project-description">A movie database that contains information about every movie</p>
-                <div class="project-links">
-                    <a href="https://github.com/lisamaliqi/10.JavascriptFordjupning_inlamning_2" target="_blank">GitHub</a>
-                    <a href="https://the-movie-db-lisas-app.netlify.app/" target="_blank">Live Demo</a>
-                </div>
-            </article>
+    <main id="main">
 
-            <article class="project-card">
-                <img src="../assets/img/projects/star-wars-wiki.png" alt="Star Wars Wiki">
-                <h3 class="project-title">Star Wars Wiki</h3>
-                <p class="project-description">An encyclopedia containing everything about the star wars movies</p>
-                <div class="project-links">
-                    <a href="https://github.com/lisamaliqi/10.JavascriptFordjupning_inlamning_1" target="_blank">GitHub</a>
-                    <a href="https://star-wars-wikipedia-lisas-app.netlify.app/" target="_blank">Live Demo</a>
-                </div>
-            </article>
+        <header class="page-header reveal">
+            <p class="eyebrow">Selected work</p>
+            <h1 class="display">Things I've built</h1>
+            <p class="lede">
+                Five projects from the past couple of years — most of them started as an
+                excuse to learn something new. Every one has its source on GitHub.
+            </p>
+        </header>
 
-            <article class="project-card">
-                <img src="../assets/img/projects/candy-store.png" alt="Candy store">
-                <h3 class="project-title">Candy Shop</h3>
-                <p class="project-description">A webshop for candy that is build on an candy-API using TypeScript</p>
-                <div class="project-links">
-                    <a href="https://github.com/lisamaliqi/04.JavascriptBasics_inlamning_2" target="_blank">GitHub</a>
-                    <a href="https://candy-shop-lisas-app.netlify.app/" target="_blank">Live Demo</a>
-                </div>
-            </article>
+        <div class="work-grid">
 
-            <article class="project-card">
-                <img src="../assets/img/projects/nerd-quiz.png" alt="Quiz game">
-                <h3 class="project-title">Nerd Quiz</h3>
-                <p class="project-description">A very simple and basic name guessing quiz using Vanilla JavaScript.</p>
-                <div class="project-links">
-                    <a href="https://github.com/lisamaliqi/04.JavascriptBasics_inlamning_1" target="_blank">GitHub</a>
-                    <a href="https://nerd-quiz-lisas-app.netlify.app/" target="_blank">Live Demo</a>
+            <!-- ---------- Featured ---------- -->
+            <article class="tile work-card work-card--featured reveal">
+                <a class="work-card__media" href="https://the-movie-db-lisas-app.netlify.app/"
+                   target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                    <img src="../assets/img/projects/TMDB.png" alt="" width="2024" height="1404">
+                </a>
+                <div class="work-card__body">
+                    <p class="eyebrow">Featured</p>
+                    <h2 class="work-card__title">The Movie DB</h2>
+                    <p class="work-card__desc">
+                        A movie database built on the TMDB API — look up just about any
+                        film and dig into the details.
+                    </p>
+                    <ul class="tags">
+                        <li class="tag">JavaScript</li>
+                        <li class="tag">REST API</li>
+                        <li class="tag">Netlify</li>
+                    </ul>
+                    <div class="work-card__links">
+                        <a class="work-link" href="https://the-movie-db-lisas-app.netlify.app/" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"></use></svg>
+                            Live demo
+                        </a>
+                        <a class="work-link" href="https://github.com/lisamaliqi/10.JavascriptFordjupning_inlamning_2" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+                            Source
+                        </a>
+                    </div>
                 </div>
             </article>
 
-            <article class="project-card">
-                <img src="../assets/img/projects/reaction-game.png" alt="Reaction game">
-                <h3 class="project-title">Reaction Game</h3>
-                <p class="project-description">A simple reaction game with its own database using socket.io, prisma and node.js.</p>
-                <div class="project-links">
-                    <a href="https://github.com/lisamaliqi/07.APIUtveckling_inlamning_2" target="_blank">GitHub</a>
-                    <a href="../assets/img/projects/reaction-game.mov" target="_blank">Video Demo</a>
+            <!-- ---------- Star Wars Wiki ---------- -->
+            <article class="tile work-card reveal">
+                <a class="work-card__media" href="https://star-wars-wikipedia-lisas-app.netlify.app/"
+                   target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                    <img src="../assets/img/projects/star-wars-wiki.png" alt="" loading="lazy" width="2024" height="1404">
+                </a>
+                <div class="work-card__body">
+                    <h2 class="work-card__title">Star Wars Wiki</h2>
+                    <p class="work-card__desc">
+                        An encyclopedia for the Star Wars universe, built on a public API.
+                    </p>
+                    <ul class="tags">
+                        <li class="tag">JavaScript</li>
+                        <li class="tag">REST API</li>
+                        <li class="tag">Netlify</li>
+                    </ul>
+                    <div class="work-card__links">
+                        <a class="work-link" href="https://star-wars-wikipedia-lisas-app.netlify.app/" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"></use></svg>
+                            Live demo
+                        </a>
+                        <a class="work-link" href="https://github.com/lisamaliqi/10.JavascriptFordjupning_inlamning_1" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+                            Source
+                        </a>
+                    </div>
                 </div>
             </article>
-            
+
+            <!-- ---------- Candy Shop ---------- -->
+            <article class="tile work-card reveal">
+                <a class="work-card__media" href="https://candy-shop-lisas-app.netlify.app/"
+                   target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                    <img src="../assets/img/projects/candy-store.png" alt="" loading="lazy" width="3346" height="1842">
+                </a>
+                <div class="work-card__body">
+                    <h2 class="work-card__title">Candy Shop</h2>
+                    <p class="work-card__desc">
+                        A candy webshop written in TypeScript on top of a public candy API.
+                    </p>
+                    <ul class="tags">
+                        <li class="tag">TypeScript</li>
+                        <li class="tag">REST API</li>
+                        <li class="tag">Netlify</li>
+                    </ul>
+                    <div class="work-card__links">
+                        <a class="work-link" href="https://candy-shop-lisas-app.netlify.app/" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"></use></svg>
+                            Live demo
+                        </a>
+                        <a class="work-link" href="https://github.com/lisamaliqi/04.JavascriptBasics_inlamning_2" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+                            Source
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ---------- Reaction Game ---------- -->
+            <article class="tile work-card reveal">
+                <a class="work-card__media" href="../assets/img/projects/reaction-game.mov"
+                   target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                    <img src="../assets/img/projects/reaction-game.png" alt="" loading="lazy" width="1468" height="1326">
+                </a>
+                <div class="work-card__body">
+                    <h2 class="work-card__title">Reaction Game</h2>
+                    <p class="work-card__desc">
+                        A reaction-time game with its own backend — Node.js and Socket.IO
+                        for live play, Prisma for keeping the scores.
+                    </p>
+                    <ul class="tags">
+                        <li class="tag">Node.js</li>
+                        <li class="tag">Socket.IO</li>
+                        <li class="tag">Prisma</li>
+                    </ul>
+                    <div class="work-card__links">
+                        <a class="work-link" href="../assets/img/projects/reaction-game.mov" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg>
+                            Video demo
+                        </a>
+                        <a class="work-link" href="https://github.com/lisamaliqi/07.APIUtveckling_inlamning_2" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+                            Source
+                        </a>
+                    </div>
+                </div>
+            </article>
+
+            <!-- ---------- Nerd Quiz ---------- -->
+            <article class="tile work-card reveal">
+                <a class="work-card__media" href="https://nerd-quiz-lisas-app.netlify.app/"
+                   target="_blank" rel="noopener noreferrer" tabindex="-1" aria-hidden="true">
+                    <img src="../assets/img/projects/nerd-quiz.png" alt="" loading="lazy" width="1692" height="1166">
+                </a>
+                <div class="work-card__body">
+                    <h2 class="work-card__title">Nerd Quiz</h2>
+                    <p class="work-card__desc">
+                        A small name-guessing quiz in vanilla JavaScript — no frameworks,
+                        no build step.
+                    </p>
+                    <ul class="tags">
+                        <li class="tag">JavaScript</li>
+                        <li class="tag">DOM</li>
+                    </ul>
+                    <div class="work-card__links">
+                        <a class="work-link" href="https://nerd-quiz-lisas-app.netlify.app/" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"></use></svg>
+                            Live demo
+                        </a>
+                        <a class="work-link" href="https://github.com/lisamaliqi/04.JavascriptBasics_inlamning_1" target="_blank" rel="noopener noreferrer">
+                            <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg>
+                            Source
+                        </a>
+                    </div>
+                </div>
+            </article>
+
         </div>
-    </body>
+
+        <footer class="page-footer">
+            <p>© <span data-year>2026</span> Lisa Maliqi</p>
+            <p><a class="link-underline" href="mailto:Lisamaliqi@hotmail.com">Lisamaliqi@hotmail.com</a></p>
+        </footer>
+
+    </main>
+</div>
+
+<script src="../script.js"></script>
+</body>
 </html>

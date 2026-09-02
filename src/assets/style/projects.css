@@ -1,0 +1,178 @@
+/* =============================================================
+   Projects — work grid
+   ============================================================= */
+
+.work-grid {
+    display: grid;
+    gap: clamp(1rem, 2vw, 1.6rem);
+    grid-template-columns: 1fr;
+}
+
+@media (min-width: 720px) {
+    .work-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (min-width: 1080px) {
+    .work-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+
+/* -------------------------------------------------------------
+   Card
+   ------------------------------------------------------------- */
+.work-card {
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+}
+
+.work-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent-line);
+    box-shadow: var(--shadow-lg);
+}
+
+/* The media box owns the ratio and the image fills it absolutely.
+   Keeping the image out of intrinsic sizing avoids a circular
+   flex/aspect-ratio loop that otherwise blows the cards up. */
+.work-card__media {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 11;
+    background: var(--surface-sunk);
+    border-bottom: 1px solid var(--line);
+}
+
+.work-card__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: 50% 0;
+    transition: transform 0.7s var(--ease);
+}
+
+.work-card:hover .work-card__media img { transform: scale(1.05); }
+
+.work-card__body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    flex: 1;
+    min-width: 0;
+    padding: clamp(1.15rem, 1.8vw, 1.5rem);
+}
+
+.work-card__title {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.4rem, 2.2vw, 1.75rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+}
+
+.work-card__desc {
+    color: var(--text-2);
+    font-size: 0.92rem;
+    flex: 1;
+}
+
+.work-card__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.35rem;
+    padding-top: 0.9rem;
+    border-top: 1px solid var(--line);
+}
+
+.work-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.42rem 0.8rem;
+    border: 1px solid var(--line);
+    border-radius: var(--r-pill);
+    font-size: 0.8rem;
+    color: var(--text-2);
+    transition: color 0.25s, border-color 0.25s, background-color 0.25s;
+}
+
+.work-link:hover {
+    color: var(--accent);
+    border-color: var(--accent-line);
+    background: var(--accent-soft);
+}
+
+.work-link .icon { width: 0.95rem; height: 0.95rem; }
+
+
+/* -------------------------------------------------------------
+   Featured card — spans two columns, media beside body
+   ------------------------------------------------------------- */
+@media (min-width: 720px) {
+    .work-card--featured {
+        grid-column: span 2;
+        flex-direction: row;
+        align-items: stretch;
+    }
+
+    /* Height comes from the body copy; the media just stretches to match. */
+    .work-card--featured .work-card__media {
+        flex: 1 1 54%;
+        aspect-ratio: auto;
+        align-self: stretch;
+        min-height: 300px;
+        border-bottom: 0;
+        border-right: 1px solid var(--line);
+    }
+
+    /* Taller than the screenshot's own ratio, so anchor the crop to the
+       top-left where the page heading and chrome actually live. */
+    .work-card--featured .work-card__media img { object-position: 0 0; }
+
+    .work-card--featured .work-card__body {
+        flex: 1 1 46%;
+        justify-content: center;
+        gap: 0.85rem;
+        padding: clamp(1.5rem, 2.6vw, 2.4rem);
+    }
+
+    .work-card--featured .work-card__title { font-size: clamp(1.8rem, 3vw, 2.5rem); }
+    .work-card--featured .work-card__desc { font-size: 1rem; flex: 0; }
+}
+
+
+/* -------------------------------------------------------------
+   Playground — placeholder state
+   ------------------------------------------------------------- */
+.soon {
+    display: grid;
+    place-items: center;
+    text-align: center;
+    gap: 1.1rem;
+    padding: clamp(3rem, 9vw, 6rem) clamp(1.5rem, 4vw, 3rem);
+}
+
+.soon__glyph {
+    width: 56px;
+    height: 56px;
+    color: var(--accent);
+    opacity: 0.8;
+}
+
+.soon h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.9rem, 4.5vw, 3rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+}
+
+.soon p {
+    max-width: 44ch;
+    color: var(--text-2);
+}

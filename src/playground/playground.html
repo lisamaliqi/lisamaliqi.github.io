@@ -3,10 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+
+    <title>Playground — Lisa Maliqi</title>
+    <meta name="description" content="A place for Lisa Maliqi's smaller experiments — interface ideas, CSS sketches and things built for the fun of it.">
+    <meta name="theme-color" content="#F2F2F7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#08081A" media="(prefers-color-scheme: dark)">
+
+    <link rel="icon" href="https://fav.farm/👾">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../assets/style/base.css">
+    <link rel="stylesheet" href="../assets/style/projects.css">
+
+    <script>
+        try {
+            var t = localStorage.getItem("theme");
+            if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+        } catch (e) {}
+    </script>
 </head>
 <body>
-    <p>currently under construction...</p>
-    
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<svg width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+    <symbol id="i-arrow-left" viewBox="0 0 24 24"><path d="M19 12H5m0 0 6-6m-6 6 6 6"/></symbol>
+    <symbol id="i-arrow-ur" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9"/></symbol>
+    <symbol id="i-sparkles" viewBox="0 0 24 24"><path d="M12 3.5 13.7 9l5.5 1.7-5.5 1.7L12 18l-1.7-5.6L4.8 10.7 10.3 9 12 3.5ZM19 3v3M17.5 4.5h3M5.5 16v2.5M4.2 17.2h2.6"/></symbol>
+    <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2M12 19.5v2M2.5 12h2M19.5 12h2M5.3 5.3l1.4 1.4M17.3 17.3l1.4 1.4M18.7 5.3l-1.4 1.4M6.7 17.3l-1.4 1.4"/></symbol>
+    <symbol id="i-moon" viewBox="0 0 24 24"><path d="M20 14.4A8.5 8.5 0 0 1 9.6 4a8.5 8.5 0 1 0 10.4 10.4Z"/></symbol>
+</svg>
+
+
+<div class="page">
+
+    <nav class="page-nav">
+        <a class="back-link" href="../../index.html">
+            <svg class="icon" aria-hidden="true"><use href="#i-arrow-left"></use></svg>
+            Back home
+        </a>
+
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle
+                aria-label="Switch colour theme">
+            <svg class="icon icon-sun" aria-hidden="true"><use href="#i-sun"></use></svg>
+            <svg class="icon icon-moon" aria-hidden="true"><use href="#i-moon"></use></svg>
+        </button>
+    </nav>
+
+    <main id="main">
+        <div class="tile soon reveal">
+            <svg class="icon soon__glyph" aria-hidden="true"><use href="#i-sparkles"></use></svg>
+            <p class="eyebrow">Playground</p>
+            <h2>Nothing here yet</h2>
+            <p>
+                This is where the smaller things will live — interface ideas, CSS sketches
+                and whatever I'm poking at that isn't big enough to be a project. Until
+                then, the finished work is next door.
+            </p>
+            <a class="btn btn--primary" href="../projects/projects.html">
+                See my work
+                <svg class="icon" aria-hidden="true"><use href="#i-arrow-ur"></use></svg>
+            </a>
+        </div>
+
+        <footer class="page-footer">
+            <p>© <span data-year>2026</span> Lisa Maliqi</p>
+            <p><a class="link-underline" href="mailto:Lisamaliqi@hotmail.com">Lisamaliqi@hotmail.com</a></p>
+        </footer>
+    </main>
+</div>
+
+<script src="../script.js"></script>
 </body>
 </html>
