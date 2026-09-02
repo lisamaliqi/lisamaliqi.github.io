@@ -98,6 +98,143 @@
     }
 
 
+    /* ---------- Reaction test ---------- */
+    const pad = document.querySelector("[data-react-pad]");
+
+    if (pad) {
+        const labelEl = pad.querySelector("[data-react-label]");
+        const hintEl = pad.querySelector("[data-react-hint]");
+        const bestEl = document.querySelector("[data-react-best]");
+        const liveEl = document.querySelector("[data-react-live]");
+        const targetEl = document.querySelector("[data-react-target]");
+
+        const STORE_KEY = "react-best";
+        // The number in the markup stays the single source of truth.
+        const target = Number(targetEl && targetEl.dataset.reactTarget) || 0;
+
+        const MIN_WAIT = 900;
+        const MAX_WAIT = 2400;
+
+        let state = "idle";
+        let timer = null;
+        let goAt = 0;
+
+        const readBest = () => {
+            try {
+                const raw = Number(localStorage.getItem(STORE_KEY));
+                return Number.isFinite(raw) && raw > 0 ? raw : null;
+            } catch (e) {
+                return null;
+            }
+        };
+
+        const writeBest = (ms) => {
+            try {
+                localStorage.setItem(STORE_KEY, String(ms));
+            } catch (e) {
+                /* private mode — the best just won't survive a reload */
+            }
+        };
+
+        const paint = (next, label, hint) => {
+            state = next;
+            pad.dataset.state = next;
+            labelEl.textContent = label;
+            hintEl.textContent = hint;
+        };
+
+        // Outcomes are announced separately: a button's own label changing
+        // is not reliably read out by screen readers.
+        const announce = (message) => {
+            if (liveEl) liveEl.textContent = message;
+        };
+
+        const showBest = (ms) => {
+            if (bestEl) bestEl.textContent = ms === null ? "—" : ms + " ms";
+        };
+
+        const reset = () => {
+            clearTimeout(timer);
+            timer = null;
+            paint("idle", "Click to start", "or press Enter");
+        };
+
+        const arm = () => {
+            clearTimeout(timer);
+            announce("");
+            paint("waiting", "Wait for green…", "don't jump");
+            timer = setTimeout(() => {
+                timer = null;
+                paint("go", "Click!", "");
+                // Read the clock here rather than when the timer was set, so a
+                // late-firing timeout doesn't inflate the score.
+                goAt = performance.now();
+            }, MIN_WAIT + Math.random() * (MAX_WAIT - MIN_WAIT));
+        };
+
+        const tooSoon = () => {
+            clearTimeout(timer);
+            timer = null;
+            paint("early", "Too soon", "wait for green, then click");
+            announce("Too soon — you clicked before the pad turned green.");
+        };
+
+        const measure = () => {
+            const ms = Math.round(performance.now() - goAt);
+            const previous = readBest();
+            const isBest = previous === null || ms < previous;
+
+            if (isBest) writeBest(ms);
+            showBest(isBest ? ms : previous);
+
+            // The pad keeps the lowercase hint voice; the announcement is
+            // written as a sentence instead.
+            let hint = "click to try again";
+            let spoken = "";
+
+            if (target && ms < target) {
+                hint = "faster than me — nice";
+                spoken = " Faster than my own best.";
+            } else if (isBest) {
+                hint = "new personal best";
+                spoken = " A new personal best.";
+            }
+
+            paint("result", ms + " ms", hint);
+            announce(ms + " milliseconds." + spoken);
+        };
+
+        const press = () => {
+            if (state === "waiting") tooSoon();
+            else if (state === "go") measure();
+            else arm();
+        };
+
+        // pointerdown rather than click: waiting for the mouse to come back up
+        // would add its own 50–100ms to every reading.
+        pad.addEventListener("pointerdown", (event) => {
+            if (event.button !== 0) return;
+            press();
+        });
+
+        pad.addEventListener("keydown", (event) => {
+            if (event.key !== "Enter" && event.key !== " ") return;
+            // Also stops the synthetic click, so a key press counts once.
+            event.preventDefault();
+            if (event.repeat) return;
+            press();
+        });
+
+        // Tabbing or scrolling away mid-round would otherwise come back to a
+        // pad that has been green for a while and record a nonsense time.
+        document.addEventListener("visibilitychange", () => {
+            if (document.hidden && (state === "waiting" || state === "go")) reset();
+        });
+
+        showBest(readBest());
+    }
+
+
     /* ---------- Current year ---------- */
     document.querySelectorAll("[data-year]").forEach((el) => {
         el.textContent = String(new Date().getFullYear());

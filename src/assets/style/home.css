@@ -19,6 +19,7 @@
         "about"
         "proj"
         "play"
+        "react"
         "contact"
         "links"
         "clock"
@@ -34,6 +35,7 @@
             "hero    clock"
             "about   proj"
             "about   play"
+            "react   react"
             "contact contact"
             "links   links"
             "footer  footer";
@@ -51,6 +53,7 @@
             "about   about   proj    proj"
             "about   about   proj    proj"
             "about   about   play    play"
+            "react   react   react   react"
             "contact contact contact links"
             "footer  footer  footer  footer";
     }
@@ -62,6 +65,7 @@
 .b-about   { grid-area: about; }
 .b-proj    { grid-area: proj; }
 .b-play    { grid-area: play; }
+.b-react   { grid-area: react; }
 .b-contact { grid-area: contact; }
 .b-links   { grid-area: links; }
 .b-footer  { grid-area: footer; }
@@ -321,6 +325,140 @@
 }
 
 .b-play:hover .icon-large { opacity: 1; transform: rotate(-8deg) scale(1.08); }
+
+
+/* -------------------------------------------------------------
+   Reaction test tile
+   ------------------------------------------------------------- */
+.b-react {
+    /* The two pad signals carry their own fill/ink pairs rather than reading
+       --mint and --on-accent. Two reasons: white on --mint is only 3.45:1 in
+       the light theme, and the theme lab writes tokens inline on :root, so
+       anything keyed on [data-theme] would stop tracking the real canvas.
+       Fixed pairs clear 7:1 and read the same in every theme. */
+    --pad-go:        #46D6A0;
+    --pad-go-ink:    #052A1F;
+    --pad-warn:      #FF9068;
+    --pad-warn-ink:  #3A0F04;
+
+    display: grid;
+    gap: clamp(1.1rem, 2.4vw, 2.25rem);
+    align-items: center;
+    grid-template-columns: minmax(0, 1fr);
+}
+
+/* Text on the left, pad on the right, once there is room for both. */
+@media (min-width: 760px) {
+    .b-react { grid-template-columns: minmax(0, 1fr) minmax(270px, 0.85fr); }
+}
+
+.b-react h2 {
+    font-family: var(--font-display);
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.4vw, 2rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin: 0.5rem 0 0.7rem;
+}
+
+.react__copy {
+    color: var(--text-2);
+    font-size: 0.95rem;
+    max-width: 44ch;
+}
+
+.react__scores {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.9rem 2rem;
+    margin-top: 1.15rem;
+}
+
+.react__scores dt {
+    font-family: var(--font-mono);
+    font-size: 0.64rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-3);
+    margin-bottom: 0.25rem;
+}
+
+.react__scores dd {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    line-height: 1;
+    font-variant-numeric: tabular-nums;
+}
+
+/* The pad itself — a plain button so Enter, Space and touch all work. */
+.react__pad {
+    display: grid;
+    place-content: center;
+    gap: 0.4rem;
+    width: 100%;
+    min-height: 152px;
+    padding: 1.35rem 1.1rem;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-md);
+    background: var(--surface-sunk);
+    color: var(--text);
+    text-align: center;
+    /* Kills the tap-to-zoom delay, so a touch reading isn't 300ms slow. */
+    touch-action: manipulation;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: background-color 0.15s var(--ease),
+                border-color 0.15s var(--ease),
+                color 0.15s var(--ease),
+                transform 0.15s var(--ease);
+}
+
+.react__pad:hover { border-color: var(--accent-line); }
+
+.react__pad-label {
+    font-family: var(--font-display);
+    font-size: clamp(1.45rem, 2.6vw, 2.05rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    font-variant-numeric: tabular-nums;
+}
+
+/* Held at a fixed height so the pad doesn't jump as the hint changes. */
+.react__pad-hint {
+    display: block;
+    min-height: 1.1rem;
+    font-family: var(--font-mono);
+    font-size: 0.66rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-3);
+}
+
+.react__pad[data-state="waiting"] {
+    border-color: var(--line-strong);
+    color: var(--text-2);
+}
+
+.react__pad[data-state="go"] {
+    background: var(--pad-go);
+    border-color: var(--pad-go);
+    color: var(--pad-go-ink);
+    transform: scale(1.015);
+}
+.react__pad[data-state="go"] .react__pad-hint { color: var(--pad-go-ink); opacity: 0.75; }
+
+.react__pad[data-state="early"] {
+    background: var(--pad-warn);
+    border-color: var(--pad-warn);
+    color: var(--pad-warn-ink);
+}
+.react__pad[data-state="early"] .react__pad-hint { color: var(--pad-warn-ink); opacity: 0.8; }
+
+.react__pad[data-state="result"] {
+    background: var(--accent-soft);
+    border-color: var(--accent-line);
+}
+.react__pad[data-state="result"] .react__pad-hint { color: var(--accent); }
 
 
 /* -------------------------------------------------------------

@@ -184,7 +184,40 @@
     </a>
 
 
-    <!-- ---------- 6. Contact ---------- -->
+    <!-- ---------- 6. Reaction test ---------- -->
+    <section class="tile b-react reveal" aria-labelledby="react-h">
+        <div class="react__intro">
+            <p class="eyebrow">Try it</p>
+            <h2 id="react-h">How fast are you?</h2>
+            <p class="react__copy">
+                A one-tile take on my
+                <a class="link-underline" href="src/projects/projects.html">multiplayer
+                reaction game</a>. Start the pad, wait for it to turn green, then hit it
+                as fast as you can.
+            </p>
+
+            <dl class="react__scores">
+                <div>
+                    <dt>Your best</dt>
+                    <dd data-react-best>&mdash;</dd>
+                </div>
+                <div>
+                    <dt>Mine</dt>
+                    <dd data-react-target="203">203 ms</dd>
+                </div>
+            </dl>
+        </div>
+
+        <button class="react__pad" type="button" data-react-pad data-state="idle">
+            <span class="react__pad-label" data-react-label>Click to start</span>
+            <span class="react__pad-hint" data-react-hint>or press Enter</span>
+        </button>
+
+        <p class="sr-only" role="status" aria-live="polite" data-react-live></p>
+    </section>
+
+
+    <!-- ---------- 7. Contact ---------- -->
     <section class="tile b-contact reveal" aria-labelledby="contact-h">
         <p class="eyebrow">Contact</p>
         <h2 id="contact-h">Want to build something together?</h2>
@@ -207,7 +240,7 @@
     </section>
 
 
-    <!-- ---------- 7. Links & resume ---------- -->
+    <!-- ---------- 8. Links & resume ---------- -->
     <section class="tile b-links reveal" aria-labelledby="links-h">
         <div>
             <p class="eyebrow" id="links-h">Elsewhere</p>
@@ -234,14 +267,14 @@
     </section>
 
 
-    <!-- ---------- 8. Clock ---------- -->
+    <!-- ---------- 9. Clock ---------- -->
     <div class="tile b-clock reveal">
         <p class="clock__time" data-clock aria-live="off">--:--</p>
         <p class="clock__place">Malmö · local time</p>
     </div>
 
 
-    <!-- ---------- 9. Footer ---------- -->
+    <!-- ---------- 10. Footer ---------- -->
     <footer class="tile b-footer reveal">
         <p>© <span data-year>2026</span> Lisa Maliqi</p>
         <p class="made">Designed &amp; built by me</p>
