@@ -24,12 +24,19 @@
 
     <link rel="stylesheet" href="src/assets/style/base.css">
     <link rel="stylesheet" href="src/assets/style/home.css">
+    <link rel="stylesheet" href="src/assets/style/theme-lab.css">
 
-    <!-- Apply the saved theme before first paint so there is no flash -->
+    <!-- Apply the saved theme — and any theme-lab mix — before first paint -->
     <script>
         try {
             var t = localStorage.getItem("theme");
             if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+
+            var lab = localStorage.getItem("theme-lab");
+            if (lab) {
+                var tokens = JSON.parse(lab).tokens || {};
+                for (var k in tokens) document.documentElement.style.setProperty(k, tokens[k]);
+            }
         } catch (e) {}
     </script>
 </head>
@@ -248,5 +255,6 @@
 </main>
 
 <script src="src/script.js"></script>
+<script src="src/theme-lab.js"></script>
 </body>
 </html>

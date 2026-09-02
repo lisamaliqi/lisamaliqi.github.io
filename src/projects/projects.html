@@ -17,11 +17,18 @@
 
     <link rel="stylesheet" href="../assets/style/base.css">
     <link rel="stylesheet" href="../assets/style/projects.css">
+    <link rel="stylesheet" href="../assets/style/theme-lab.css">
 
     <script>
         try {
             var t = localStorage.getItem("theme");
             if (t === "light" || t === "dark") document.documentElement.dataset.theme = t;
+
+            var lab = localStorage.getItem("theme-lab");
+            if (lab) {
+                var tokens = JSON.parse(lab).tokens || {};
+                for (var k in tokens) document.documentElement.style.setProperty(k, tokens[k]);
+            }
         } catch (e) {}
     </script>
 </head>
@@ -258,5 +265,6 @@
 </div>
 
 <script src="../script.js"></script>
+<script src="../theme-lab.js"></script>
 </body>
 </html>
