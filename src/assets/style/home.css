@@ -394,6 +394,25 @@
     gap: 0.6rem;
 }
 
+/* Resume side of the tile: one label over the language choices. */
+.b-links .resume .eyebrow {
+    margin-bottom: 0.65rem;
+}
+
+.resume__options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+/* Only on tablet does the tile span the grid as a wide row; there the resume
+   block hugs its edge. Narrower and on desktop it is a column, so it stays
+   left-aligned under the socials. */
+@media (min-width: 700px) and (max-width: 1079px) {
+    .b-links .resume { text-align: right; }
+    .resume__options { justify-content: flex-end; }
+}
+
 
 /* -------------------------------------------------------------
    Footer tile
